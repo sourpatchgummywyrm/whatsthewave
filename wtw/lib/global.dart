@@ -54,3 +54,10 @@ TextStyle reggie5 = new TextStyle(
     fontSize: 11.5,
     letterSpacing: 1.5,
     fontWeight: FontWeight.w200); //may have to change to w100
+
+TextStyle reggie6 = new TextStyle(
+    fontFamily: 'Varela Round',
+    color: Colors.white,
+    fontSize: 11.5,
+    letterSpacing: 1.5,
+    fontWeight: FontWeight.w200); //may have to change to w100

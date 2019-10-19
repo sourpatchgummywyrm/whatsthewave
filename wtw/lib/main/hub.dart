@@ -64,6 +64,7 @@ class HubState extends State<Hub> with SingleTickerProviderStateMixin {
             ),
           ),
           body: new TabBarView(
+            physics: NeverScrollableScrollPhysics(),
             children: <Widget>[Search(), Waves(), Profile()],
           )),
     );
