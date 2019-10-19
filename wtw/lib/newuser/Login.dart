@@ -104,7 +104,7 @@ class LoginState extends State<Login> {
                             ],
                           )),
                       new Container(
-                        padding: EdgeInsets.only(right: 30.0, top: 25.0),
+                        padding: EdgeInsets.only(right: 25.0, top: 25.0),
                         child: new Text(
                           "Forgot Password",
                           style: reggie3,
@@ -122,8 +122,8 @@ class LoginState extends State<Login> {
               width: 270.0,
               child: new RaisedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Hub()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Hub()));
                 },
                 elevation: 20.0,
                 color: Colors.white,

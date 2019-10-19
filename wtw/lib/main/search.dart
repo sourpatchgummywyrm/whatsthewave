@@ -9,6 +9,26 @@ class Search extends StatefulWidget {
 }
 
 class SearchState extends State<Search> {
+  createParty(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: new Text(
+              "Create Party",
+              textAlign: TextAlign.center,
+            ),
+            content: new Column(
+              children: <Widget>[
+                new TextFormField(),
+                new TextFormField(),
+                new TextFormField(),
+              ],
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height * 0.75;
@@ -19,7 +39,7 @@ class SearchState extends State<Search> {
       floatingActionButton: FloatingActionButton.extended(
         elevation: 20.0,
         onPressed: () {
-          // Add your onPressed code here!
+          createParty(context);
         },
         label: Text(
           'Create',
