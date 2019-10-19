@@ -27,13 +27,7 @@ class HubState extends State<Hub> with SingleTickerProviderStateMixin {
               backgroundColor: paleRedColor,
               elevation: 0.0,
               bottom: TabBar(
-                // labelColor: Colors.redAccent,
-                // unselectedLabelColor: paleRedColor,
-                indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.0),
-                    color: darkerRedColors),
-                // indicator:
-                //     new BoxDecoration(borderRadius: BorderRadius.circular(50.0)),
+                indicatorColor: Colors.white,
                 tabs: <Widget>[
                   new Tab(
                     child: new Container(
@@ -54,7 +48,7 @@ class HubState extends State<Hub> with SingleTickerProviderStateMixin {
                       decoration: new BoxDecoration(
                           borderRadius: BorderRadius.circular(30.0)),
                       child: new Text(
-                        "Hub",
+                        "Profile",
                         style: reggie3,
                       ),
                     ),

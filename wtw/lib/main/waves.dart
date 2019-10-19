@@ -70,6 +70,9 @@ class WavesState extends State<Waves> {
                                       ],
                                     ),
                                   ),
+                                  new Padding(
+                                    padding: EdgeInsets.only(bottom: 15.0),
+                                  ),
                                   new Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
@@ -110,6 +113,9 @@ class WavesState extends State<Waves> {
                                       ),
                                     ],
                                   ),
+                                  new Padding(
+                                    padding: EdgeInsets.only(bottom: 10.0),
+                                  ),
                                   new SizedBox(
                                     width: 300.0,
                                     child: new RaisedButton(
@@ -124,6 +130,9 @@ class WavesState extends State<Waves> {
                                         style: reggie6,
                                       ),
                                     ),
+                                  ),
+                                  new Padding(
+                                    padding: EdgeInsets.only(bottom: 10.0),
                                   ),
                                 ],
                               ),
@@ -245,3 +254,108 @@ final List<Events> _events = <Events>[
       description: "yadda yadda yadda",
       time: "12pm - 5pm"),
 ];
+
+// new ExpansionTile(
+//                           title: new Column(
+//                             children: <Widget>[
+//                               new Align(
+//                                   alignment: Alignment.centerLeft,
+//                                   child: new Text(
+//                                     events.name,
+//                                     style: reggie4,
+//                                   )),
+//                               new Align(
+//                                   alignment: Alignment.centerLeft,
+//                                   child: new Text(
+//                                     events.location,
+//                                     style: reggie5,
+//                                   ))
+//                             ],
+//                           ),
+//                           children: <Widget>[
+//                             new ListTile(
+//                               title: new Column(
+//                                 children: <Widget>[
+//                                   new Container(
+//                                     child: new Column(
+//                                       children: <Widget>[
+//                                         new Text(
+//                                           events.time,
+//                                           style: reggie4,
+//                                         ),
+//                                         new Text(
+//                                           events.description,
+//                                           style: reggie4,
+//                                         )
+//                                       ],
+//                                     ),
+//                                   ),
+//                                   new Padding(
+//                                     padding: EdgeInsets.only(bottom: 15.0),
+//                                   ),
+//                                   new Row(
+//                                     mainAxisAlignment:
+//                                         MainAxisAlignment.spaceAround,
+//                                     children: <Widget>[
+//                                       new Container(
+//                                         child: new SizedBox(
+//                                           child: new RaisedButton(
+//                                             elevation: 10.0,
+//                                             onPressed: () {},
+//                                             shape: RoundedRectangleBorder(
+//                                                 borderRadius:
+//                                                     BorderRadius.circular(
+//                                                         10.0)),
+//                                             color: Colors.green,
+//                                             child: new Text(
+//                                               "Accept",
+//                                               style: reggie6,
+//                                             ),
+//                                           ),
+//                                         ),
+//                                       ),
+//                                       new Container(
+//                                         child: new SizedBox(
+//                                           child: new RaisedButton(
+//                                             color: Colors.red,
+//                                             onPressed: () {},
+//                                             elevation: 10.0,
+//                                             shape: RoundedRectangleBorder(
+//                                                 borderRadius:
+//                                                     BorderRadius.circular(
+//                                                         10.0)),
+//                                             child: new Text(
+//                                               "Dismiss",
+//                                               style: reggie6,
+//                                             ),
+//                                           ),
+//                                         ),
+//                                       ),
+//                                     ],
+//                                   ),
+//                                   new Padding(
+//                                     padding: EdgeInsets.only(bottom: 10.0),
+//                                   ),
+//                                   new SizedBox(
+//                                     width: 300.0,
+//                                     child: new RaisedButton(
+//                                       color: paleRedColor,
+//                                       onPressed: () {},
+//                                       elevation: 10.0,
+//                                       shape: RoundedRectangleBorder(
+//                                           borderRadius:
+//                                               BorderRadius.circular(10.0)),
+//                                       child: new Text(
+//                                         "Contact Oraganizer",
+//                                         style: reggie6,
+//                                       ),
+//                                     ),
+//                                   ),
+//                                   new Padding(
+//                                     padding: EdgeInsets.only(bottom: 10.0),
+//                                   ),
+//                                 ],
+//                               ),
+//                             )
+//                           ],
+//                         )

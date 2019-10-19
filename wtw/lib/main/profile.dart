@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wtw/global.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: paleRedColor,
     );
   }
 }
