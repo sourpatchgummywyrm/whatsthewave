@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wtw/global.dart';
+import 'package:wtw/main/dialog.dart';
 
 class Waves extends StatefulWidget {
   Waves({Key key}) : super(key: key);
@@ -11,6 +12,7 @@ class Waves extends StatefulWidget {
 }
 
 class WavesState extends State<Waves> {
+  Dialogs dialogs = new Dialogs();
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height * 0.75;
@@ -98,7 +100,10 @@ class WavesState extends State<Waves> {
                                         child: new SizedBox(
                                           child: new RaisedButton(
                                             color: Colors.red,
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              dialogs.information(
+                                                  context, events.name);
+                                            },
                                             elevation: 10.0,
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
