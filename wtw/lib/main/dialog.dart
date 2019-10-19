@@ -41,7 +41,7 @@ class Dialogs {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    "Bet",
+                    "Bett",
                     style: reggie3,
                   ),
                 ),
