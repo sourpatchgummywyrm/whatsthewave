@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:wtw/global.dart';
 
 class Waves extends StatefulWidget {
+  Waves({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return new WavesState();
@@ -9,10 +11,11 @@ class Waves extends StatefulWidget {
 }
 
 class WavesState extends State<Waves> {
+  Color _color = const Color(0xFF00FF00);
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height * 0.75;
-
     return new Scaffold(
       backgroundColor: paleRedColor,
       body: new Column(
@@ -27,33 +30,49 @@ class WavesState extends State<Waves> {
                 itemCount: _events.length,
                 itemBuilder: (context, index) {
                   final events = _events[index];
+
                   return new Container(
-                      padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-                      child: new Card(
-                          elevation: 10.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          child: new ExpansionTile(
-                            title: new Column(
+                    padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                    child: new Dismissible(
+                        key: Key("Dismiss"),
+                        direction: DismissDirection.horizontal,
+                        onDismissed: (direction) {
+                          if (direction == DismissDirection.endToStart) {
+                            setState(() {
+                              _events.removeAt(index);
+                              _color = const Color(0xFFDC143C);
+                            });
+                          }
+                        },
+                        background: new Container(
+                          color: _color,
+                        ),
+                        child: new Card(
+                            elevation: 10.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0)),
+                            child: new ExpansionTile(
+                              title: new Column(
+                                children: <Widget>[
+                                  new Text(
+                                    events.name,
+                                    style: reggie4,
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  new Text(
+                                    events.location,
+                                    style: reggie5,
+                                    textAlign: TextAlign.left,
+                                  )
+                                ],
+                              ),
                               children: <Widget>[
-                                new Text(
-                                  events.name,
-                                  style: reggie4,
-                                  textAlign: TextAlign.left,
-                                ),
-                                new Text(
-                                  events.location,
-                                  style: reggie5,
-                                  textAlign: TextAlign.left,
+                                new ListTile(
+                                  title: new Text(events.description),
                                 )
                               ],
-                            ),
-                            children: <Widget>[
-                              new ListTile(
-                                title: new Text(events.description),
-                              )
-                            ],
-                          )));
+                            ))),
+                  );
                 },
               ))
         ],
