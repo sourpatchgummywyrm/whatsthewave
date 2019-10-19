@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wtw/global.dart';
+import 'package:wtw/main/hub.dart';
 import 'package:wtw/newuser/termsofservice.dart';
 import 'dart:async';
 
@@ -12,6 +13,7 @@ class CreateParty extends StatefulWidget {
 
 class CreatePartyState extends State<CreateParty> {
   bool checkpoint = false;
+  bool isButtonEnabled = false;
   TextEditingController partyName = new TextEditingController();
   TextEditingController partyLocation = new TextEditingController();
 
@@ -44,46 +46,87 @@ class CreatePartyState extends State<CreateParty> {
 
   @override
   Widget build(BuildContext context) {
+    var _onPressed;
+    if (isButtonEnabled) {
+      _onPressed = () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Hub()));
+      };
+    }
+    double height = MediaQuery.of(context).size.height;
+    double formheight = height * 0.4;
     return new Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: new AppBar(
+          backgroundColor: paleRedColor,
+          elevation: 0.0,
+          leading: Padding(
+            padding: EdgeInsets.only(left: 12),
+            child: IconButton(
+              icon: Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Hub()));
+              },
+            ),
+          ),
+        ),
         backgroundColor: paleRedColor,
         body: new Column(
           children: <Widget>[
             new Container(
-              padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 0.0),
-              child: new TextFormField(),
+              padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+              child: new TextFormField(
+                controller: partyName,
+                decoration: new InputDecoration(
+                    labelText: 'Event Name',
+                    labelStyle: new TextStyle(
+                        fontFamily: 'Varela Round',
+                        color: Colors.white,
+                        fontSize: 11.5,
+                        letterSpacing: 1.5,
+                        fontWeight: FontWeight.w200),
+                    enabledBorder: new UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
+                    focusedBorder: new UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white))),
+              ),
             ),
             new Container(
-              padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 0.0),
-              child: new TextFormField(),
+              padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+              child: new TextFormField(
+                controller: partyLocation,
+                decoration: new InputDecoration(
+                    labelText: 'Event Location',
+                    labelStyle: new TextStyle(
+                        fontFamily: 'Varela Round',
+                        color: Colors.white,
+                        fontSize: 11.5,
+                        letterSpacing: 1.5,
+                        fontWeight: FontWeight.w200),
+                    enabledBorder: new UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
+                    focusedBorder: new UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white))),
+              ),
             ),
-            new Row(children: <Widget>[
-              new Checkbox(
-                activeColor: Colors.white,
-                value: checkpoint,
-                onChanged: (bool value) {
-                  setState(() {
-                    checkpoint = value;
-                  });
-                },
-              ),
-              new GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Terms()));
-                },
-                child: new Text("I agree to the terms and conditions"),
-              ),
-            ]),
+            new Padding(
+              padding: EdgeInsets.only(bottom: 25.0),
+            ),
             new SizedBox(
+              width: 275.0,
               child: new RaisedButton(
                 color: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
                 onPressed: () {
                   selectDate(context);
                 },
                 child: new Text("Pick Day", style: reggie4),
               ),
             ),
-            new Text(date.toString(), style: reggie3),
+            new Padding(
+              padding: EdgeInsets.only(bottom: 15.0),
+            ),
             new Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -115,16 +158,65 @@ class CreatePartyState extends State<CreateParty> {
                 )
               ],
             ),
+            new Padding(
+              padding: EdgeInsets.only(bottom: 15.0),
+            ),
+            new Text(date.toString(), style: reggie3),
+            new Padding(
+              padding: EdgeInsets.only(bottom: 15.0),
+            ),
             new Text(
               time.toString(),
               style: reggie3,
             ),
+            new Padding(
+              padding: EdgeInsets.only(bottom: 15.0),
+            ),
+            new Center(
+              child: new Row(children: <Widget>[
+                new Checkbox(
+                  activeColor: Colors.white,
+                  value: checkpoint,
+                  onChanged: (bool value) {
+                    setState(() {
+                      if (value = false) {
+                        isButtonEnabled = false;
+                      }
+                      if (value = true) {
+                        checkpoint = value;
+                        isButtonEnabled = true;
+                      }
+                    });
+                  },
+                ),
+                new GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Terms()));
+                  },
+                  child: new Text(
+                    "I agree to the terms and conditions",
+                    textAlign: TextAlign.center,
+                    style: new TextStyle(
+                        fontFamily: 'Varela Round',
+                        color: Colors.white,
+                        fontSize: 11.5,
+                        letterSpacing: 1.5,
+                        fontWeight: FontWeight.w200),
+                  ),
+                ),
+              ]),
+            ),
+            new Padding(
+              padding: EdgeInsets.only(top: 15.0),
+            ),
             new SizedBox(
+              width: 275.0,
               child: new RaisedButton(
                 color: Colors.white,
-                onPressed: () {
-                  selectDate(context);
-                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
+                onPressed: _onPressed,
                 child: new Text(
                   "Create",
                   style: loginScreen,

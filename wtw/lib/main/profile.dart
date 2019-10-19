@@ -13,6 +13,9 @@ class ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return new Scaffold(
       backgroundColor: paleRedColor,
+      body: new Column(
+        
+      ),
     );
   }
 }
