@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wtw/global.dart';
 import 'package:wtw/main/waves.dart';
 
 class Dialogs {
@@ -6,20 +7,44 @@ class Dialogs {
     return showDialog(
         context: context,
         barrierDismissible: true,
-        builder: (BuildContext) {
+        builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(title),
+            title: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: new TextStyle(
+                  fontFamily: 'Varela Round',
+                  color: paleRedColor,
+                  fontSize: 22.0,
+                  letterSpacing: 1.5,
+                  fontWeight: FontWeight.w300),
+            ),
             content: SingleChildScrollView(
-              child: ListBody(
+              child: Column(
                 children: <Widget>[
-                  Text("Remove $title event from your timeline?")
+                  Text(
+                    "Remove $title event from your timeline?",
+                    style: reggie4,
+                    textAlign: TextAlign.center,
+                  )
                 ],
               ),
             ),
             actions: <Widget>[
-              new RaisedButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text("Bet"),
+              new SizedBox(
+                width: 100.0,
+                child: new RaisedButton(
+                  color: paleRedColor,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "Bet",
+                    style: reggie3,
+                  ),
+                ),
               )
             ],
           );
