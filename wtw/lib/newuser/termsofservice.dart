@@ -8,7 +8,7 @@ class Terms extends StatelessWidget {
       backgroundColor: paleRedColor,
       body: new Center(
           child: new Text(
-        "Terms of Service",
+        "Terms of Service kjnskjnc",
         style: reggie3,
       )),
     );
