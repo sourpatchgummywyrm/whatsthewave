@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:wtw/global.dart';
 import './newuser/Start.dart';
@@ -11,8 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: Hub(),
+      title: "What's the Wave?",
+      home: Start(),
       debugShowCheckedModeBanner: false,
     );
   }
