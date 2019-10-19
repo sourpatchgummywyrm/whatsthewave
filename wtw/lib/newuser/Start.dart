@@ -22,7 +22,7 @@ class StartState extends State<Start> {
       backgroundColor: paleRedColor,
       body: new Column(
         children: <Widget>[
-          new SizedBox(), //add padding 
+          new SizedBox(), //add padding
           new Container(
             padding: EdgeInsets.only(
               top: 50.0,
